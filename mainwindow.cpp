@@ -19,7 +19,15 @@ void MainWindow::on_btnStartServer_clicked()
     if(_server == nullptr){
         auto port = ui->spnServerPort->value();
         _server = new TCPServer(port);
-        connect(_server, &TCPServer::newClientConnected, this, &MainWindow::on_newClient_connected);
+        connect(_server, &TCPServer::newClientConnected, this, &MainWindow::newClientConnected);
     }
+    auto state = (_server->isStarted()) ? "1" : "0";
+    ui->lblConnectionStatus->setProperty("state", state);
+    style()->polish(ui->lblConnectionStatus);
+}
+
+void MainWindow::newClientConnected()
+{
+    ui->lstConsole->addItem("New Client connected");
 }
 

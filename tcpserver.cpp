@@ -16,6 +16,8 @@ void TCPServer::on_client_connecting()
 {
     qDebug() << "a client connected to server";
     auto socket = _server->nextPendingConnection();
+    _socketList.append(socket);
+    socket->write("Welcome to this server");
     emit newClientConnected();
 }
 

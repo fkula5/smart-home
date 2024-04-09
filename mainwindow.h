@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QStyle>
 #include "tcpserver.h"
 
 QT_BEGIN_NAMESPACE
@@ -21,7 +22,7 @@ public:
 private slots:
     void on_btnStartServer_clicked();
 
-    void on_newClient_connected();
+    void newClientConnected();
 
 private:
     Ui::MainWindow *ui;
