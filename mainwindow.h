@@ -24,6 +24,10 @@ private slots:
 
     void newClientConnected();
 
+    void clientDisconnected();
+
+    void clientDataReceived(QString message);
+
 private:
     Ui::MainWindow *ui;
     TCPServer *_server;

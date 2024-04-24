@@ -13,14 +13,17 @@ public:
     bool isStarted() const;
 signals:
     void newClientConnected();
-
+    void clientDisconnect(QString device);
+    void dataReceived(QString message);
 private slots:
     void on_client_connecting();
-
+    void clientDisconnected();
+    void clientData();
 private:
     QTcpServer *_server;
     QList<QTcpSocket *> _socketList;
     bool _isStarted;
+    QString device;
 };
 
 #endif // TCPSERVER_H

@@ -20,6 +20,8 @@ void MainWindow::on_btnStartServer_clicked()
         auto port = ui->spnServerPort->value();
         _server = new TCPServer(port);
         connect(_server, &TCPServer::newClientConnected, this, &MainWindow::newClientConnected);
+        connect(_server, &TCPServer::dataReceived, this, &MainWindow::clientDataReceived);
+        connect(_server, &TCPServer::clientDisconnect, this, &MainWindow::clientDisconnected);
     }
     auto state = (_server->isStarted()) ? "1" : "0";
     ui->lblConnectionStatus->setProperty("state", state);
@@ -29,5 +31,16 @@ void MainWindow::on_btnStartServer_clicked()
 void MainWindow::newClientConnected()
 {
     ui->lstConsole->addItem("New Client connected");
+}
+
+void MainWindow::clientDisconnected()
+{
+    ui->lstConsole->addItem("Client disconnected");
+}
+
+void MainWindow::clientDataReceived(QString message)
+{
+    ui->lstConsole->addItem(message);
+
 }
 
