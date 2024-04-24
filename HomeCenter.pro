@@ -9,21 +9,15 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    ../../Downloads/zaawansowanny c++/zaawansowanny c++/Intelligent home/Projekt/dialog.cpp \
-    dialog.cpp \
     main.cpp \
     mainwindow.cpp \
     tcpserver.cpp
 
 HEADERS += \
-    ../../Downloads/zaawansowanny c++/zaawansowanny c++/Intelligent home/Projekt/dialog.h \
-    dialog.h \
     mainwindow.h \
     tcpserver.h
 
 FORMS += \
-    ../../Downloads/zaawansowanny c++/zaawansowanny c++/Intelligent home/Projekt/dialog.ui \
-    dialog.ui \
     mainwindow.ui
 
 # Default rules for deployment.
