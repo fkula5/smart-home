@@ -28,6 +28,14 @@ private slots:
 
     void clientDataReceived(QString message);
 
+    void on_btnTrnOn_clicked();
+
+    void on_btnTrnOff_clicked();
+
+    void on_btnTrnUp_clicked();
+
+    void on_btnTrnDown_clicked();
+
 private:
     Ui::MainWindow *ui;
     TCPServer *_server;

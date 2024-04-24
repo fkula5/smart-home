@@ -11,10 +11,12 @@ CONFIG += c++17
 SOURCES += \
     main.cpp \
     mainwindow.cpp \
+    newdevicedialog.cpp \
     tcpserver.cpp
 
 HEADERS += \
     mainwindow.h \
+    newdevicedialog.h \
     tcpserver.h
 
 FORMS += \

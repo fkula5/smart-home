@@ -18,6 +18,8 @@ void TCPServer::on_client_connecting(){
     connect(socket, &QTcpSocket::readyRead, this, &TCPServer::clientData);
     connect(socket, &QTcpSocket::disconnected, this, &TCPServer::clientDisconnected);
     _socketList.append(socket);
+    ClientInfo client = {socket, "", ""};
+    _clients.append(client);
     socket->write("Welcome to this server");
     emit newClientConnected();
 }
@@ -25,7 +27,14 @@ void TCPServer::on_client_connecting(){
 void TCPServer::clientData(){
     auto socket = qobject_cast<QTcpSocket *>(sender());
     auto data = socket->readAll();
-    emit dataReceived(QString(data));
+    if(data == "Lampa" || data == "Roleta"){
+        for(ClientInfo &client : _clients){
+            if(client.socket == socket){
+                client.deviceType = data;
+                emit dataReceived(QString(data), client);
+            }
+        }
+    }
 }
 
 void TCPServer::clientDisconnected(){
@@ -35,4 +44,12 @@ void TCPServer::clientDisconnected(){
 bool TCPServer::isStarted() const
 {
     return _isStarted;
+}
+
+void TCPServer::sendToDevice(QString message, QString deviceType){
+    for(ClientInfo &client : _clients){
+        if(client.deviceType == deviceType){
+            client.socket->write(message.toUtf8());
+        }
+    }
 }

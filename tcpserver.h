@@ -1,4 +1,4 @@
-    #ifndef TCPSERVER_H
+#ifndef TCPSERVER_H
 #define TCPSERVER_H
 
 #include <QObject>
@@ -8,22 +8,29 @@
 class TCPServer : public QObject
 {
     Q_OBJECT
-public:
-    explicit TCPServer(int port, QObject *parent = nullptr);
-    bool isStarted() const;
-signals:
-    void newClientConnected();
-    void clientDisconnect(QString device);
-    void dataReceived(QString message);
-private slots:
-    void on_client_connecting();
-    void clientDisconnected();
-    void clientData();
 private:
     QTcpServer *_server;
     QList<QTcpSocket *> _socketList;
     bool _isStarted;
     QString device;
+    struct ClientInfo {
+        QTcpSocket *socket;
+        QString deviceType;
+        QString deviceName;
+    };
+    QList<ClientInfo> _clients;
+public:
+    explicit TCPServer(int port, QObject *parent = nullptr);
+    bool isStarted() const;
+    void sendToDevice(QString message, QString deviceType);
+signals:
+    void newClientConnected();
+    void clientDisconnect(QString device);
+    void dataReceived(QString message, ClientInfo &client);
+private slots:
+    void on_client_connecting();
+    void clientDisconnected();
+    void clientData();
 };
 
 #endif // TCPSERVER_H
