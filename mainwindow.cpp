@@ -38,9 +38,15 @@ void MainWindow::newClientConnected()
     ui->lstConsole->addItem("New Client connected");
 }
 
-void MainWindow::clientDisconnected()
+void MainWindow::clientDisconnected(QString device)
 {
-    ui->lstConsole->addItem("Client disconnected");
+    ui->lstConsole->addItem(device);
+    if(device == "Lampa"){
+        ui->Lamp->hide();
+    }
+    if(device == "Roleta"){
+        ui->Shade->hide();
+    }
 }
 
 void MainWindow::clientDataReceived(QString message)

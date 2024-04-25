@@ -24,7 +24,7 @@ private slots:
 
     void newClientConnected();
 
-    void clientDisconnected();
+    void clientDisconnected(QString device);
 
     void clientDataReceived(QString message);
 

@@ -38,7 +38,12 @@ void TCPServer::clientData(){
 }
 
 void TCPServer::clientDisconnected(){
-    emit clientDisconnect(device);
+    auto socket = qobject_cast<QTcpSocket *>(sender());
+    for(ClientInfo &client  : _clients){
+        if(client.socket == socket){
+            emit clientDisconnect(client.deviceType);
+        }
+    }
 }
 
 bool TCPServer::isStarted() const
