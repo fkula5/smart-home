@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>646</width>
-    <height>544</height>
+    <width>776</width>
+    <height>536</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -95,7 +95,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>170</y>
+      <y>160</y>
       <width>241</width>
       <height>281</height>
      </rect>
@@ -118,13 +118,13 @@
      <rect>
       <x>310</x>
       <y>30</y>
-      <width>302</width>
-      <height>211</height>
+      <width>436</width>
+      <height>411</height>
      </rect>
     </property>
-    <layout class="QVBoxLayout" name="verticalLayout_2">
+    <layout class="QVBoxLayout" name="activeWidgets">
      <item>
-      <widget class="QGroupBox" name="groupBox_3">
+      <widget class="QGroupBox" name="Shade">
        <property name="title">
         <string>Roleta</string>
        </property>
@@ -154,22 +154,57 @@
       </widget>
      </item>
      <item>
-      <widget class="QGroupBox" name="groupBox_2">
+      <widget class="QGroupBox" name="Lamp">
        <property name="title">
         <string>Lampa</string>
        </property>
        <layout class="QGridLayout" name="gridLayout">
-        <item row="1" column="0">
-         <widget class="QPushButton" name="btnTrnOn">
+        <item row="2" column="0">
+         <widget class="QLabel" name="label_4">
           <property name="text">
-           <string>On</string>
+           <string>Kolor</string>
           </property>
          </widget>
         </item>
-        <item row="1" column="1">
-         <widget class="QPushButton" name="btnTrnOff">
+        <item row="3" column="3">
+         <widget class="QPushButton" name="btnBlue">
           <property name="text">
-           <string>Off</string>
+           <string>Blue</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="1">
+         <widget class="QPushButton" name="btnYellow">
+          <property name="text">
+           <string>Yellow</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="4">
+         <widget class="QPushButton" name="btnWhite">
+          <property name="text">
+           <string>White</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0">
+         <widget class="QPushButton" name="btnGreen">
+          <property name="text">
+           <string>Green</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="2">
+         <widget class="QPushButton" name="btnRed">
+          <property name="text">
+           <string>Red</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0" colspan="2">
+         <widget class="QPushButton" name="btnTrnOn">
+          <property name="text">
+           <string>On</string>
           </property>
          </widget>
         </item>
@@ -177,6 +212,48 @@
          <widget class="QLabel" name="label_2">
           <property name="text">
            <string>Stan</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="0">
+         <widget class="QLabel" name="label_5">
+          <property name="text">
+           <string>Jasność</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="3" colspan="2">
+         <widget class="QPushButton" name="btnTrnOff">
+          <property name="text">
+           <string>Off</string>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="0">
+         <widget class="QPushButton" name="btnBright25">
+          <property name="text">
+           <string>25%</string>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="1">
+         <widget class="QPushButton" name="btnBright50">
+          <property name="text">
+           <string>50%</string>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="3">
+         <widget class="QPushButton" name="btnBright75">
+          <property name="text">
+           <string>75%</string>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="4">
+         <widget class="QPushButton" name="btnBright100">
+          <property name="text">
+           <string>100%</string>
           </property>
          </widget>
         </item>
@@ -191,8 +268,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>646</width>
-     <height>21</height>
+     <width>776</width>
+     <height>17</height>
     </rect>
    </property>
   </widget>
